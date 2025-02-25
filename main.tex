@@ -1,0 +1,166 @@
+% Das ist mein Template für die Präsentationen an der DHBW Stuttgart. Nicht perfekt, also falls ihr Verbesserungsvorschläge habt, stellt gerne einen Pull-Request. https://github.com/NikomitK/TX000_Template
+% Bitte lasst auch einen star auf github da, danke.
+% Damit es richtig funktioniert, müssen die Schriftarten Fira Sans und Fira Mono installiert sein.
+\documentclass[ngerman,14pt,aspectratio=1610]{beamer}
+
+% Imports
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{babel}
+\usepackage{graphicx}
+\usepackage{multicol}
+\usepackage{textpos} % Logo in frametitle
+\usepackage{ifthen} % Für das \ifthenelse
+\usepackage{totcount} % Für Counter, die in main.aux gespeichert werden
+
+% Startpfad für Bilder setzen
+\graphicspath{ {./images/} }
+
+% DHBW Logos
+\newcommand{\dhbwlangtrans}{\includegraphics[width=5cm]{dhbw_lang_trans}}
+\newcommand{\dhbwkurzweiss}{\includegraphics[width=0.5\paperwidth]{dhbw}}
+
+% Subsections zählen
+\def\secname{Gliederung} % Der Titel der jeweiligen Section wird in secname gespeichert, damit innerhalb der Section der counter mit dem name erhöht werden kann
+\let\oldsection\section
+\renewcommand{\section}[1]{
+	\oldsection{#1}
+	\newtotcounter{#1}
+	\def\secname{#1}
+}
+\let\oldsubsection\subsection
+\renewcommand{\subsection}[1]{
+	\oldsubsection{#1} 
+	\stepcounter{\secname}
+}
+
+% Nummern bei Frametitle
+\newcommand{\secpagnum}{\insertsectionnumber.\thesubsection}
+\newcommand{\lastpagenum}{1}
+\let\oldframetitle\frametitle
+\renewcommand{\frametitle}[1]{
+	\ifthenelse{\equal{\lastpagenum}{\insertslidenumber}}{
+		\subsection{}
+		\renewcommand{\lastpagenum}{\insertslidenumber}
+	}{
+		% Hier soll nichts passieren, damit bei gleichen slides der title nicht neu gesetzt wird
+	}
+	
+	\ifthenelse{\totvalue{\secname}>1}{
+	\oldframetitle{\secpagnum~#1}
+	}{
+	\oldframetitle{\insertsectionnumber~#1}
+	}
+}
+
+% Multicol column balancing ausschalten
+\raggedcolumns
+
+% Basis-Theme
+\usetheme[progressbar=frametitle, block=fill, sectionpage=none]{metropolis} % Hier kann die progressbar deaktiviert/replaziert werden
+\setbeamertemplate{frame numbering}[counter]
+\useoutertheme{metropolis}
+\useinnertheme{metropolis}
+\usefonttheme{metropolis}
+\setbeamercolor{background canvas}{bg=white}
+
+% Sections im ToC Nummerieren
+\setbeamertemplate{section in toc}[sections numbered]
+\setbeamertemplate{subsection in toc}[subsections numbered]
+
+% Zeilenabstand ToC
+\makeatletter
+\patchcmd{\beamer@sectionintoc}
+{\vfill}
+{\vskip\itemsep}
+{}
+{}
+\makeatother 
+
+% DHBW Farben
+\definecolor{dhbw_grau}{RGB}{93,104,110}
+\definecolor{dhbw_rot}{RGB}{227,6,19}
+\definecolor{dunkelgrau}{RGB}{41,55,67}
+\definecolor{hellgrau}{RGB}{239,241,242}
+
+% DHBW Farben einbauen
+\setbeamercolor{progress bar}{fg=dhbw_rot, bg=hellgrau}
+\setbeamercolor{normal text}{fg=dunkelgrau} %bg hier macht block bg
+\setbeamercolor{alerted text}{fg=dhbw_rot}
+\setbeamercolor{frametitle}{fg=dhbw_rot,bg=hellgrau}
+\setbeamercolor{title}{fg=dhbw_rot}
+\setbeamercolor{subtitle}{fg=dunkelgrau}
+\setbeamercolor{section title}{fg=dhbw_rot}
+\setbeamercolor{institute}{fg=dhbw_rot}
+
+
+\setbeamerfont{subtitle}{size=\small}
+
+% Logo in frametitle
+\addtobeamertemplate{frametitle}{}{%
+	\begin{textblock*}{5cm}(\textwidth-4cm,-1.3cm)
+		\dhbwlangtrans
+	\end{textblock*}}
+
+% Datum in der Fußzeile
+\setbeamertemplate{frame footer}{
+	\hskip 2.5em \insertdate
+} 
+
+% Endseite
+\newcommand{\finalpage}[2][Vielen Dank für ihre Aufmerksamkeit!]{
+\metroset{sectionpage=none}
+\setbeamertemplate{frame numbering}[none]
+\setbeamertemplate{frame footer}{}
+\oldsection*{#1}
+\begin{frame} \vspace{60pt}
+	\sectionpage
+	\vspace{10pt}
+	\centering
+	#2
+\end{frame}
+}
+
+% Daten für die Titelseite
+\title{Einfluss der Teststrategien auf die Daten für die Pandemiesimulation}
+\subtitle{Bioinformatik}
+\author{Sven Sendke}
+\institute[DHBW Stuttgart]{Duale Hochschule Baden-Württemberg Stuttgart}
+\date{10.03.2025}	
+\titlegraphic { 
+	\begin{tikzpicture}[overlay,remember picture]
+		\node[right=0.5cm] at (current page.154){
+			\dhbwlangtrans
+		};
+	\end{tikzpicture}
+}
+
+\regtotcounter{section}
+\regtotcounter{subsection}
+
+\begin{document}
+	
+	\begin{frame}[plain,noframenumbering]
+		\titlepage
+	\end{frame}
+
+	\newtotcounter{Gliederung}
+	
+	\begin{frame}[t]{Gliederung} \vspace{20pt}
+		\oldframetitle{Gliederung}
+		\begin{columns}[T, onlytextwidth]
+			\column{0.5\textwidth}
+			\linespread{1.5}
+			\tableofcontents
+			\column{0.5\textwidth}
+		\end{columns}
+	\end{frame}
+	
+	\metroset{sectionpage=simple} % Erst hier definiert, damit die Gliederung keine Sectionpage hat
+	
+	
+	\finalpage{\inserttitlegraphic}
+	%\frame{\sectionpage}
+
+
+\end{document}
