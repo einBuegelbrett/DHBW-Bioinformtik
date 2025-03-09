@@ -288,3 +288,4 @@ TSWLatexianTemp*
 
 # End of https://mrkandreev.name/snippets/gitignore-generator/#TeX
 # main.pdf
+.idea
