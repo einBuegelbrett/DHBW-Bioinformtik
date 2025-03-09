@@ -160,7 +160,7 @@
 	
 	\section{Allgemeine Einführung}
 	
-	\renewcommand{\source}{Quelle: https://arxiv.org/pdf/2210.13089}
+	\renewcommand{\source}{Quelle: \url{https://arxiv.org/pdf/2210.13089}}
 	
 	\begin{frame}[t]{Covid-19} \vspace{15pt}
 		\begin{itemize}
@@ -175,7 +175,7 @@
 	
 	\section{Teststrategien}
 	
-	\begin{frame}[t]{Testarten} \vspace{20pt}
+	\begin{frame}[t]{Testarten} \vspace{40pt}
 			\begin{itemize}
 				\item PCR tests
 				\item Serological tests
@@ -186,15 +186,37 @@
 			$\rightarrow$  Alle verschiedene Qualitätslevel
 	\end{frame}
 	
+	\renewcommand{\source}{Quelle: \url{https://arxiv.org/pdf/2210.13089}}
+	
 	\begin{frame}[t]{Qualitätslevel}
-		Sensitivity \& Specificity
-		
+		\only<1>{
 		\begin{figure}[h]
 			\centering
-			\includegraphics[width=0.2\linewidth]{sensitivity-specificity}
-			\newline
+			\includegraphics[width=0.28\linewidth]{sensitivity-specificity}
 			\tiny Quelle: \href{https://iq.opengenus.org/precision-recall-sensitivity-specificity/}{\texttt{https://iq.opengenus.org}}
 		\end{figure}
+	}
+	
+	\only<2>{
+		\vspace{5pt}
+		\begin{itemize}
+			\item \textbf{\alert{Sensitivität:}} Wahrscheinlichkeit, dass ein Test bei kranken Personen positiv ist
+			\begin{itemize}
+				\item 100\% Sensitivität $\rightarrow$ keine falschen Negativen
+			\end{itemize}
+			
+			\item \textbf{\alert{Spezifität:}} Wahrscheinlichkeit, dass ein Test bei gesunden Personen negativ ist
+			\begin{itemize}
+				\item 100\% Spezifität $\rightarrow$ keine falschen Positiven
+			\end{itemize}
+		
+			\item \textbf{Kein perfekter Test:}
+			\begin{itemize}
+				\item \textbf{Hohe Sensitivität} $\rightarrow$ Weniger falsche Negative \\ $\rightarrow$ Infizierte werden erkannt und isoliert
+				\item \textbf{Hohe Spezifität} $\rightarrow$ Weniger falsche Positive \\ $\rightarrow$ Gesunde werden nicht unnötig isoliert
+			\end{itemize}
+		\end{itemize}
+	}
 	\end{frame}
 	
 	\begin{frame}[t]{Teststrategien} \vspace{40pt}
@@ -212,6 +234,8 @@
 	
 	\section{Bezug zum Paper}
 	
+	\renewcommand{\source}{ }
+	
 	\begin{frame}[t]{Relevanz des Themas} \vspace{5pt}
 		\begin{itemize}
 			\item Paper behandelt die Simulation von Teststrategien für Pandemien
@@ -226,19 +250,21 @@
 		\end{itemize}
 	\end{frame}
 	
+	\renewcommand{\source}{Quelle: \url{https://arxiv.org/pdf/2210.13089}}
+	
 	\begin{frame}[t]{Vorteile von Simulationen} \vspace{10pt}
 		\begin{itemize}
 			\item Vergleich von Strategien unter \textbf{gleichen Bedingungen}
 			\item Exakt gleiche Szenarien mit \textbf{veränderten Parametern}
 			\item Die \textbf{tatsächliche} Infektionskurve kann mit der \textbf{geschätzten verglichen} werden
-			\item Unvorhergesehene Folgen von Maßnahmen können frühzeitig erkannt werden
+			\item Unvorhergesehene Folgen von Maßnahmen können \textbf{frühzeitig} erkannt werden
 			\item Ermöglicht die Optimierung von (Impf- und) Teststrategien, um \textbf{effektive Maßnahmen} abzuleiten
 		\end{itemize}
 	\end{frame}
 	
 	\section{Wissenschaftliche Beispiele}
 	
-	\begin{frame}[t]{Belege aus Forschung und Praxis} \vspace{10pt}
+	\begin{frame}[t]{Belege aus Forschung und Praxis} \vspace{5pt}
 		\begin{itemize}
 			\item \href{https://www.ssoar.info/ssoar/bitstream/handle/document/82820/sopolis-die-simulation-der-pandemie.pdf?sequence=-1&isAllowed=y&lnkname=sopolis-die-simulation-der-pandemie.pdf}{\texttt{Die Simulation der Pandemie}}: Diese Studie befasst sich mit der Rolle von Computersimulationen in der Pandemiebewältigung.
 			\item \href{https://www.nature.com/articles/s43588-021-00031-0}{\texttt{Quantifying the uncertainty of CovidSim}}: Untersuchung von Covid-Simulationen $\rightarrow$ Bewertung der Auswirkungen von Unsicherheiten auf die Modellergebnisse
@@ -247,6 +273,8 @@
 	\end{frame}
 	
 	\section{Implementierung}
+	
+	\renewcommand{\source}{ }
 	
 	\begin{frame}[t]{Agentenbasierte Simulation} \vspace{30pt}		
 		\begin{columns}[T, onlytextwidth]
@@ -273,12 +301,14 @@
 		\url{https://nausikaa.net/wp-content/uploads/2022/10/virus1-screening-en.html}
 	\end{frame}
 	
+	\renewcommand{\source}{Quelle: \url{https://arxiv.org/pdf/2210.13089}}
+	
 	\begin{frame}[t]{Erkenntnisse}
 		\begin{itemize}
 			\item Wahl der Teststrategie beeinflusst die Wahrnehmung der Epidemie \textbf{erheblich}
-			\item Testen nur von \textbf{symptomatischen Personen} führt zu einer \textbf{Überschätzung} der Infektionszahlen
-			\item Zufällige Tests liefern \textbf{genauere Schätzungen}, aber \textbf{„verschwenden“ viele Tests} an nicht infizierte Personen
-			\item Gezieltes Testen von Hochrisikogruppen oder Personen mit vielen Kontakten kann effektiver sein, erzeugt aber \textbf{Verzerrungen}
+			\item \textbf{\alert{Zufällige Tests}}: liefern \textbf{genauere Schätzungen}, aber \textbf{„verschwenden“ viele Tests} an nicht infizierte Personen
+			\item \textbf{\alert{Symptomatischen Personen}}: führt zu einer \textbf{Überschätzung} der Infektionszahlen
+			\item \textbf{\alert{Hochrisikogruppen}} oder \textbf{\alert{Personen mit vielen Kontakten}}: kann effektiver sein, erzeugt aber \textbf{Verzerrungen}
 			\item \textbf{Früher Start} der Testkampagne \textbf{verbessert die Kontrolle} der Epidemie erheblich
 		\end{itemize}
 	\end{frame}
@@ -290,7 +320,7 @@
 			 Wenn nur symptomatische Personen getestet werden, wird die Gesamtzahl der Infektionen in der Bevölkerung erheblich überschätzt.
 		\end{frame}
 		
-		\begin{frame}[t]{Zusammenfassung}
+		\begin{frame}[t]{Zusammenfassung} \vspace{15pt}
 			\begin{itemize}
 				\item \textbf{Einführung:} COVID-19-Lockdowns und deren Herausforderungen. Simulationen optimieren Teststrategien.
 				\item \textbf{Teststrategien:} Verschiedene Testarten und Qualitätslevels (Sensitivität und Spezifität).
@@ -307,35 +337,35 @@
 		\end{frame}	
 		
 		\begin{frame}[t]{Frage 1} \vspace{20pt}
-			\textbf{Welche der folgenden Aussagen beschreibt am besten den Zweck einer Simulation?}
+			\textbf{Was beschreibt die Sensitivität eines Tests?}
 			\begin{enumerate}
-				\only<1>{\item [A] Sie liefert immer exakte Vorhersagen für reale Systeme.}
-				\only<2>{\item[A] \textbf{\alert{Sie liefert immer exakte Vorhersagen für reale Systeme.}}}
-				\item[B] Sie ermöglicht es, komplexe Systeme unter kontrollierten Bedingungen zu analysieren.
-				\item[C] Sie ersetzt vollständig die Durchführung realer Experimente.
-				\item[D] Sie wird nur für physikalische Systeme verwendet.
+				\item[A] Die Wahrscheinlichkeit, dass ein Test bei gesunden Personen negativ ist
+				\only<1>{\item [B] Die Wahrscheinlichkeit, dass ein Test bei kranken Personen positiv ist}
+				\only<2>{\item[B] \textbf{\alert{Die Wahrscheinlichkeit, dass ein Test bei kranken Personen positiv ist}}}
+				\item[C] Die Genauigkeit eines Tests in Bezug auf alle getesteten Personen
+				\item[D] Die Anzahl der durchgeführten Tests pro Tag
 			\end{enumerate}
 		\end{frame}
 		
-		\begin{frame}[t]{Frage 2} \vspace{20pt}
-			\textbf{Welche Herausforderung kann bei der Nutzung von Simulationen auftreten?}
+		\begin{frame}[t]{Frage 2} \vspace{40pt}
+			\textbf{Warum ist ein früher Start der Testkampagne vorteilhaft?}
 			\begin{enumerate}
-				\item[A] Hohe Rechenanforderungen bei komplexen Modellen.
-				\only<1>{\item[B] Fehlende Notwendigkeit einer Datenvalidierung.}
-				\only<2>{\item[B] \textbf{\alert{Fehlende Notwendigkeit einer Datenvalidierung.}}}
-				\item[C] Simulationen liefern immer eindeutige Ergebnisse.
-				\item[D] Simulationen sind unabhängig von Annahmen und Parametern.
+				\item[A] Weil weniger Tests benötigt werden
+				\item[B] Weil die Tests dann eine höhere Genauigkeit haben
+				\only<1>{\item[C] Weil die Epidemie dadurch besser kontrolliert werden kann}
+				\only<2>{\item[C] \textbf{\alert{Weil die Epidemie dadurch besser kontrolliert werden kann }}}
+				\item[D] Weil dadurch keine Verzerrungen mehr auftreten
 			\end{enumerate}
 		\end{frame}
 		
 		\begin{frame}[t]{Frage 3} \vspace{20pt}
-			\textbf{Welche Teststrategie kann besonders effektiv sein, um eine Epidemie einzudämmen?}
+			\textbf{Welche Teststrategie liefert genauere Schätzungen, „verschwendet“ aber viele Tests an nicht infizierte Personen?}
 			\begin{enumerate}
-				\item[A] Zufällige Tests in der gesamten Bevölkerung.
-				\item[B] Testen nur von symptomatischen Personen.
-				\only<1>{\item[C] Gezieltes Testen von Hochrisikogruppen oder Personen mit vielen Kontakten.}
-				\only<2>{\item[C] \textbf{\alert{Gezieltes Testen von Hochrisikogruppen oder Personen mit vielen Kontakten.}}}
-				\item[D] Testen ausschließlich in Krankenhäusern.
+				\item[A] Testen von symptomatischen Personen
+				\item[B] Testen von Hochrisikogruppen
+				\only<1>{\item[C] Zufällige Tests }
+				\only<2>{\item[C] \textbf{\alert{Zufällige Tests }}}
+				\item[D] Testen von Personen mit vielen Kontakten
 			\end{enumerate}
 		\end{frame}
 	
