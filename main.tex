@@ -1,7 +1,6 @@
-% Das ist mein Template für die Präsentationen an der DHBW Stuttgart. Nicht perfekt, also falls ihr Verbesserungsvorschläge habt, stellt gerne einen Pull-Request. https://github.com/NikomitK/TX000_Template
-% Bitte lasst auch einen star auf github da, danke.
-% Damit es richtig funktioniert, müssen die Schriftarten Fira Sans und Fira Mono installiert sein.
 \documentclass[ngerman,14pt,aspectratio=1610]{beamer}
+\usepackage{hyperref}
+\hypersetup{breaklinks=true}
 
 % Imports
 \usepackage[utf8]{inputenc}
@@ -103,9 +102,10 @@
 	\end{textblock*}}
 
 % Datum in der Fußzeile
+\newcommand{\source}{}
 \setbeamertemplate{frame footer}{
-	\hskip 2.5em \insertdate
-} 
+	\hskip 2.5em \insertdate \hspace{1em} \source
+}
 
 % Endseite
 \newcommand{\finalpage}[2][Vielen Dank für ihre Aufmerksamkeit!]{
@@ -146,7 +146,7 @@
 
 	\newtotcounter{Gliederung}
 	
-	\begin{frame}[t]{Gliederung} \vspace{20pt}
+	\begin{frame}[t]{Gliederung} \vspace{5pt}
 		\oldframetitle{Gliederung}
 		\begin{columns}[T, onlytextwidth]
 			\column{0.5\textwidth}
@@ -158,9 +158,188 @@
 	
 	\metroset{sectionpage=simple} % Erst hier definiert, damit die Gliederung keine Sectionpage hat
 	
+	\section{Allgemeine Einführung}
+	
+	\renewcommand{\source}{Quelle: https://arxiv.org/pdf/2210.13089}
+	
+	\begin{frame}[t]{Covid-19} \vspace{15pt}
+		\begin{itemize}
+			\item Erstes Covid-19 Jahr $\rightarrow$ Lockdown
+			\item \textbf{ABER} Langfristig schwer zu halten $\rightarrow$ wirtschaftliche und psychische Gründe
+			\item Vertrauen sinkt, Fake News, Verweigerung oder Zögern beim Impfen
+		\end{itemize}
+		
+		$\rightarrow$ \textbf{Lösung}: Simulation verschiedener Strategien zur Ermittlung optimaler Parameter \\
+		Diese Präsentation konzentriert sich auf die \textbf{\alert{Teststrategien}}
+	\end{frame}
+	
+	\section{Teststrategien}
+	
+	\begin{frame}[t]{Testarten} \vspace{20pt}
+			\begin{itemize}
+				\item PCR tests
+				\item Serological tests
+				\item Antigenic tests
+				\item Auto-tests
+			\end{itemize}
+			
+			$\rightarrow$  Alle verschiedene Qualitätslevel
+	\end{frame}
+	
+	\begin{frame}[t]{Qualitätslevel}
+		Sensitivity \& Specificity
+		
+		\begin{figure}[h]
+			\centering
+			\includegraphics[width=0.2\linewidth]{sensitivity-specificity}
+			\newline
+			\tiny Quelle: \href{https://iq.opengenus.org/precision-recall-sensitivity-specificity/}{\texttt{https://iq.opengenus.org}}
+		\end{figure}
+	\end{frame}
+	
+	\begin{frame}[t]{Teststrategien} \vspace{40pt}
+		\begin{itemize}
+			\item Wer soll priorisiert getestet werden?
+			\item Vergleich von Teststrategien:
+			\begin{itemize}
+				\item Zufällige Tests
+				\item Testen von symptomatischen Personen
+				\item Testen von Hochrisikogruppen
+				\item Testen von Personen mit vielen Kontakten
+			\end{itemize}
+		\end{itemize}
+	\end{frame}
+	
+	\section{Bezug zum Paper}
+	
+	\begin{frame}[t]{Relevanz des Themas} \vspace{5pt}
+		\begin{itemize}
+			\item Paper behandelt die Simulation von Teststrategien für Pandemien
+			\item Ziel: Analyse der Auswirkungen verschiedener Testmethoden auf die Eindämmung der Pandemie
+			\item Warum relevant?
+			\begin{itemize}
+				\item Optimierung von Teststrategien kann Ausbreitung minimieren
+				\item Hilft politischen Entscheidungsträgern bei der Planung
+				\item Verbindung zu realen Szenarien (z. B. COVID-19)
+			\end{itemize}
+			\item \textbf{\alert{Ziel dieser Präsentation}} $\rightarrow$ Simulationsergebnisse und deren Implikationen
+		\end{itemize}
+	\end{frame}
+	
+	\begin{frame}[t]{Vorteile von Simulationen} \vspace{10pt}
+		\begin{itemize}
+			\item Vergleich von Strategien unter \textbf{gleichen Bedingungen}
+			\item Exakt gleiche Szenarien mit \textbf{veränderten Parametern}
+			\item Die \textbf{tatsächliche} Infektionskurve kann mit der \textbf{geschätzten verglichen} werden
+			\item Unvorhergesehene Folgen von Maßnahmen können frühzeitig erkannt werden
+			\item Ermöglicht die Optimierung von (Impf- und) Teststrategien, um \textbf{effektive Maßnahmen} abzuleiten
+		\end{itemize}
+	\end{frame}
+	
+	\section{Wissenschaftliche Beispiele}
+	
+	\begin{frame}[t]{Belege aus Forschung und Praxis} \vspace{10pt}
+		\begin{itemize}
+			\item \href{https://www.ssoar.info/ssoar/bitstream/handle/document/82820/sopolis-die-simulation-der-pandemie.pdf?sequence=-1&isAllowed=y&lnkname=sopolis-die-simulation-der-pandemie.pdf}{\texttt{Die Simulation der Pandemie}}: Diese Studie befasst sich mit der Rolle von Computersimulationen in der Pandemiebewältigung.
+			\item \href{https://www.nature.com/articles/s43588-021-00031-0}{\texttt{Quantifying the uncertainty of CovidSim}}: Untersuchung von Covid-Simulationen $\rightarrow$ Bewertung der Auswirkungen von Unsicherheiten auf die Modellergebnisse
+			\item Praktische Anwendung: COVID-19-Strategien vieler Länder basierten auf ähnlichen Modellierungen. In dem Paper wird Frankreich als Beispiel benannt.
+		\end{itemize}
+	\end{frame}
+	
+	\section{Implementierung}
+	
+	\begin{frame}[t]{Agentenbasierte Simulation} \vspace{30pt}		
+		\begin{columns}[T, onlytextwidth]
+			\column{0.45\textwidth}
+			\begin{itemize}
+				\item Implementierung in NetLogo
+				\item Simulation verschiedener Teststrategien
+				\item Parameter: Testverfügbarkeit, Startzeitpunkt, Zielgruppe
+			\end{itemize}
+			
+			\column{0.45\textwidth}			
+			\begin{figure}[h]
+				\centering
+				\includegraphics[width=\linewidth]{netlogo}
+				\tiny Quelle: \href{https://www.upwork.com/services/product/development-it-a-netlogo-agent-based-simulation-model-1351194777425215488}{\texttt{https://www.upwork.com}}
+			\end{figure}
+			
+		\end{columns}
+	\end{frame}
+	
+	\begin{frame}[t]{Praxisbeispiele} \vspace{60pt}
+		\textbf{\textit{Aber nun genug von der Theorie...}}\\
+		\bigskip
+		\url{https://nausikaa.net/wp-content/uploads/2022/10/virus1-screening-en.html}
+	\end{frame}
+	
+	\begin{frame}[t]{Erkenntnisse}
+		\begin{itemize}
+			\item Wahl der Teststrategie beeinflusst die Wahrnehmung der Epidemie \textbf{erheblich}
+			\item Testen nur von \textbf{symptomatischen Personen} führt zu einer \textbf{Überschätzung} der Infektionszahlen
+			\item Zufällige Tests liefern \textbf{genauere Schätzungen}, aber \textbf{„verschwenden“ viele Tests} an nicht infizierte Personen
+			\item Gezieltes Testen von Hochrisikogruppen oder Personen mit vielen Kontakten kann effektiver sein, erzeugt aber \textbf{Verzerrungen}
+			\item \textbf{Früher Start} der Testkampagne \textbf{verbessert die Kontrolle} der Epidemie erheblich
+		\end{itemize}
+	\end{frame}
+	
+	\section{Schluss}
+		\renewcommand{\source}{ }
+	
+		\begin{frame}[t]{Überraschenste Erkenntnis} \vspace{80pt}
+			 Wenn nur symptomatische Personen getestet werden, wird die Gesamtzahl der Infektionen in der Bevölkerung erheblich überschätzt.
+		\end{frame}
+		
+		\begin{frame}[t]{Zusammenfassung}
+			\begin{itemize}
+				\item \textbf{Einführung:} COVID-19-Lockdowns und deren Herausforderungen. Simulationen optimieren Teststrategien.
+				\item \textbf{Teststrategien:} Verschiedene Testarten und Qualitätslevels (Sensitivität und Spezifität).
+				\item \textbf{Relevanz:} Simulationen unterstützen politische Entscheidungen und Pandemiebewältigung.
+				\item \textbf{Erkenntnisse:} Teststrategie beeinflusst Epidemiewahrnehmung. Früher Teststart verbessert Kontrolle.
+			\end{itemize}
+		\end{frame}
+	
+	\section{Fragen}
+	
+		\begin{frame}[t]{Fragen} \vspace{85pt}
+			\centering
+			\textbf{Gibt es irgendwelche Fragen?}
+		\end{frame}	
+		
+		\begin{frame}[t]{Frage 1} \vspace{20pt}
+			\textbf{Welche der folgenden Aussagen beschreibt am besten den Zweck einer Simulation?}
+			\begin{enumerate}
+				\only<1>{\item [A] Sie liefert immer exakte Vorhersagen für reale Systeme.}
+				\only<2>{\item[A] \textbf{\alert{Sie liefert immer exakte Vorhersagen für reale Systeme.}}}
+				\item[B] Sie ermöglicht es, komplexe Systeme unter kontrollierten Bedingungen zu analysieren.
+				\item[C] Sie ersetzt vollständig die Durchführung realer Experimente.
+				\item[D] Sie wird nur für physikalische Systeme verwendet.
+			\end{enumerate}
+		\end{frame}
+		
+		\begin{frame}[t]{Frage 2} \vspace{20pt}
+			\textbf{Welche Herausforderung kann bei der Nutzung von Simulationen auftreten?}
+			\begin{enumerate}
+				\item[A] Hohe Rechenanforderungen bei komplexen Modellen.
+				\only<1>{\item[B] Fehlende Notwendigkeit einer Datenvalidierung.}
+				\only<2>{\item[B] \textbf{\alert{Fehlende Notwendigkeit einer Datenvalidierung.}}}
+				\item[C] Simulationen liefern immer eindeutige Ergebnisse.
+				\item[D] Simulationen sind unabhängig von Annahmen und Parametern.
+			\end{enumerate}
+		\end{frame}
+		
+		\begin{frame}[t]{Frage 3} \vspace{20pt}
+			\textbf{Welche Teststrategie kann besonders effektiv sein, um eine Epidemie einzudämmen?}
+			\begin{enumerate}
+				\item[A] Zufällige Tests in der gesamten Bevölkerung.
+				\item[B] Testen nur von symptomatischen Personen.
+				\only<1>{\item[C] Gezieltes Testen von Hochrisikogruppen oder Personen mit vielen Kontakten.}
+				\only<2>{\item[C] \textbf{\alert{Gezieltes Testen von Hochrisikogruppen oder Personen mit vielen Kontakten.}}}
+				\item[D] Testen ausschließlich in Krankenhäusern.
+			\end{enumerate}
+		\end{frame}
 	
 	\finalpage{\inserttitlegraphic}
 	%\frame{\sectionpage}
-
 
 \end{document}
