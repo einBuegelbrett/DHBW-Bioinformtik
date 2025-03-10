@@ -177,46 +177,47 @@
 	
 	\begin{frame}[t]{Testarten} \vspace{40pt}
 			\begin{itemize}
-				\item PCR tests
-				\item Serological tests
-				\item Antigenic tests
-				\item Auto-tests
+				\item PCR-Tests
+				\item Serologische Tests (Antikörpertests)	
+				\item Antigentests (Schnelltests)
+				\item Selbsttests
 			\end{itemize}
 			
 			$\rightarrow$  Alle verschiedene Qualitätslevel
 	\end{frame}
 	
-	\renewcommand{\source}{Quelle: \url{https://arxiv.org/pdf/2210.13089}}
+	\renewcommand{\source}{ }
 	
 	\begin{frame}[t]{Qualitätslevel}
-		\only<1>{
 		\begin{figure}[h]
 			\centering
 			\includegraphics[width=0.28\linewidth]{sensitivity-specificity}
 			\tiny Quelle: \href{https://iq.opengenus.org/precision-recall-sensitivity-specificity/}{\texttt{https://iq.opengenus.org}}
 		\end{figure}
-	}
+	\end{frame}
 	
-	\only<2>{
-		\vspace{5pt}
+	\renewcommand{\source}{Quelle: \url{https://arxiv.org/pdf/2210.13089}}
+	
+	\begin{frame}[t]{Sensitivität und Spezifität}
 		\begin{itemize}
 			\item \textbf{\alert{Sensitivität:}} Wahrscheinlichkeit, dass ein Test bei kranken Personen positiv ist
 			\begin{itemize}
 				\item 100\% Sensitivität $\rightarrow$ keine falschen Negativen
+				\item Negatives Ergebnis $\rightarrow$ absolute Sicherheit, dass die Person nicht krank ist
 			\end{itemize}
 			
 			\item \textbf{\alert{Spezifität:}} Wahrscheinlichkeit, dass ein Test bei gesunden Personen negativ ist
 			\begin{itemize}
 				\item 100\% Spezifität $\rightarrow$ keine falschen Positiven
+				\item Positives Ergebnis $\rightarrow$ absolute Sicherheit, dass die Person krank ist
 			\end{itemize}
 		
 			\item \textbf{Kein perfekter Test:}
 			\begin{itemize}
-				\item \textbf{Hohe Sensitivität} $\rightarrow$ Weniger falsche Negative \\ $\rightarrow$ Infizierte werden erkannt und isoliert
-				\item \textbf{Hohe Spezifität} $\rightarrow$ Weniger falsche Positive \\ $\rightarrow$ Gesunde werden nicht unnötig isoliert
+				\item \textbf{Hohe Sensitivität} $\rightarrow$ Infizierte werden erkannt und isoliert
+				\item \textbf{Hohe Spezifität} $\rightarrow$ Gesunde werden nicht unnötig isoliert
 			\end{itemize}
 		\end{itemize}
-	}
 	\end{frame}
 	
 	\begin{frame}[t]{Teststrategien} \vspace{40pt}
@@ -264,25 +265,24 @@
 	
 	\section{Wissenschaftliche Beispiele}
 	
-	\begin{frame}[t]{Belege aus Forschung und Praxis} \vspace{5pt}
+	\begin{frame}[t]{Belege aus Forschung und Praxis} \vspace{25pt}
 		\begin{itemize}
-			\item \href{https://www.ssoar.info/ssoar/bitstream/handle/document/82820/sopolis-die-simulation-der-pandemie.pdf?sequence=-1&isAllowed=y&lnkname=sopolis-die-simulation-der-pandemie.pdf}{\texttt{Die Simulation der Pandemie}}: Diese Studie befasst sich mit der Rolle von Computersimulationen in der Pandemiebewältigung.
+			\item \href{https://www.ssoar.info/ssoar/bitstream/handle/document/82820/sopolis-die-simulation-der-pandemie.pdf?sequence=-1&isAllowed=y&lnkname=sopolis-die-simulation-der-pandemie.pdf}{\texttt{Die Simulation der Pandemie}}: Studie über die Rolle von Computersimulationen bei der Bewältigung von Pandemien
 			\item \href{https://www.nature.com/articles/s43588-021-00031-0}{\texttt{Quantifying the uncertainty of CovidSim}}: Untersuchung von Covid-Simulationen $\rightarrow$ Bewertung der Auswirkungen von Unsicherheiten auf die Modellergebnisse
-			\item Praktische Anwendung: COVID-19-Strategien vieler Länder basierten auf ähnlichen Modellierungen. In dem Paper wird Frankreich als Beispiel benannt.
+			\item Praktische Anwendung: COVID-19-Strategien vieler Länder (z.B. Frankreich im Paper mehrfach erwähnt)
 		\end{itemize}
 	\end{frame}
 	
 	\section{Implementierung}
 	
-	\renewcommand{\source}{ }
-	
 	\begin{frame}[t]{Agentenbasierte Simulation} \vspace{30pt}		
 		\begin{columns}[T, onlytextwidth]
-			\column{0.45\textwidth}
+			\column{0.6\textwidth}
 			\begin{itemize}
-				\item Implementierung in NetLogo
-				\item Simulation verschiedener Teststrategien
+				\item Implementierung in  \textbf{NetLogo}
+				\item  \textbf{Agentenbasierte Simulation}: modelliert das Verhalten autonomer Agenten in einer Umgebung
 				\item Parameter: Testverfügbarkeit, Startzeitpunkt, Zielgruppe
+				\item Sensitivität und Spezifität $\rightarrow$ 90\%
 			\end{itemize}
 			
 			\column{0.45\textwidth}			
@@ -300,8 +300,6 @@
 		\bigskip
 		\url{https://nausikaa.net/wp-content/uploads/2022/10/virus1-screening-en.html}
 	\end{frame}
-	
-	\renewcommand{\source}{Quelle: \url{https://arxiv.org/pdf/2210.13089}}
 	
 	\begin{frame}[t]{Erkenntnisse}
 		\begin{itemize}
@@ -322,7 +320,7 @@
 		
 		\begin{frame}[t]{Zusammenfassung} \vspace{15pt}
 			\begin{itemize}
-				\item \textbf{Einführung:} COVID-19-Lockdowns und deren Herausforderungen. Simulationen optimieren Teststrategien.
+				\item \textbf{Einführung:} COVID-19-Lockdowns und deren Herausforderungen. 
 				\item \textbf{Teststrategien:} Verschiedene Testarten und Qualitätslevels (Sensitivität und Spezifität).
 				\item \textbf{Relevanz:} Simulationen unterstützen politische Entscheidungen und Pandemiebewältigung.
 				\item \textbf{Erkenntnisse:} Teststrategie beeinflusst Epidemiewahrnehmung. Früher Teststart verbessert Kontrolle.
